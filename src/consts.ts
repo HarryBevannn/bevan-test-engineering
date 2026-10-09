@@ -4,8 +4,8 @@ export const SITE = {
   tagline: 'Software testing consultancy',
   description:
     'Independent software testing consultancy helping teams ship with confidence through test strategy, automation, performance and accessibility testing.',
-  // TODO: replace with your real contact details
-  email: 'hello@example.com',
+  email: 'harrybevan97@proton.me',
+  // TODO: replace with your LinkedIn profile URL
   linkedin: 'https://www.linkedin.com/',
   github: 'https://github.com/harrybevannn',
   location: 'United Kingdom',
