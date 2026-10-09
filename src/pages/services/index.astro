@@ -1,0 +1,21 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import CallToAction from '../../components/CallToAction.astro';
+
+const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<Layout title="Services" description="Software testing services: test strategy, test automation, performance and accessibility testing.">
+  <section class="container-page pt-16">
+    <h1 class="text-4xl font-extrabold tracking-tight text-ink-900">Services</h1>
+    <p class="mt-4 max-w-2xl text-lg text-ink-500">
+      Whether you need a full test strategy or a hand with one specific problem, here's how I can help.
+    </p>
+    <div class="mt-12 grid gap-6 sm:grid-cols-2">
+      {services.map((service) => <ServiceCard service={service} />)}
+    </div>
+  </section>
+  <CallToAction />
+</Layout>

@@ -1,43 +1,44 @@
-# Astro Starter Kit: Minimal
+# Bevan Test Engineering
+
+Marketing site for Bevan Test Engineering, a software testing consultancy.
+
+**Stack:** [Astro](https://astro.build) (static site) · Tailwind CSS · Markdown content · Netlify (hosting + contact form)
+
+## Run locally
 
 ```sh
-npm create astro@latest -- --template minimal
+npm install
+npm run dev       # http://localhost:4321
+npm run build     # production build into dist/
+npm run preview   # serve the production build
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Editing content
 
-## 🚀 Project Structure
+| What | Where |
+|---|---|
+| Business name, email, LinkedIn, nav links | `src/consts.ts` |
+| Services (one Markdown file per service) | `src/content/services/*.md` |
+| Home page copy | `src/pages/index.astro` |
+| About page | `src/pages/about.astro` |
+| Contact form | `src/pages/contact.astro` |
+| Colours and fonts | `src/styles/global.css` (`@theme` block) |
 
-Inside of your Astro project, you'll see the following folders and files:
+**Add a service:** copy an existing file in `src/content/services/`, rename it (the filename becomes the URL), and edit the front matter and body. Use `order` to control its position.
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+Search for `PLACEHOLDER` and `TODO` to find copy that still needs writing.
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Deploying (Netlify)
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+1. Push this repo to GitHub.
+2. In Netlify: **Add new site → Import from Git**, then pick the repo. Build settings come from `netlify.toml`.
+3. Under **Site configuration → Site details**, rename the site to `bevan-test-engineering` so it's served at `https://bevan-test-engineering.netlify.app`.
+4. Under **Forms**, enable form detection, then add an email notification so enquiries reach your inbox.
 
-Any static assets, like images, can be placed in the `public/` directory.
+Every push to `main` redeploys automatically.
 
-## 🧞 Commands
+## Adding a custom domain later
 
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+1. Buy the domain (e.g. Cloudflare Registrar or Namecheap).
+2. In Netlify: **Domain management → Add a domain**, and follow the DNS instructions.
+3. Update `site` in `astro.config.mjs` and the sitemap URL in `public/robots.txt`.

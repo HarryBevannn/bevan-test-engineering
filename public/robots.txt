@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bevan-test-engineering.netlify.app/sitemap-index.xml

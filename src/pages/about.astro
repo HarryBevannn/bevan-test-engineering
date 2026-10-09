@@ -1,0 +1,48 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CallToAction from '../components/CallToAction.astro';
+
+// PLACEHOLDER: replace with your real credentials
+const credentials = ['ISTQB Certified Tester (placeholder)', 'X years in software testing (placeholder)', 'Sectors: e.g. fintech, e-commerce, public sector (placeholder)'];
+---
+
+<Layout title="About" description="About Bevan Test Engineering, an independent software testing consultancy.">
+  <section class="container-page pt-16">
+    <h1 class="text-4xl font-extrabold tracking-tight text-ink-900">About</h1>
+
+    <div class="mt-10 grid gap-12 lg:grid-cols-[1fr_18rem]">
+      <div class="prose-content">
+        <!-- PLACEHOLDER COPY: rewrite in your own words -->
+        <p>
+          Hi, I'm Harry Bevan, founder of Bevan Test Engineering. I help software teams find and fix quality
+          problems early, so they can release faster and with less stress.
+        </p>
+        <h2>My background</h2>
+        <p>
+          Add a short summary of your experience here: the kinds of companies you've worked with, the
+          problems you've solved, and the technologies you know well.
+        </p>
+        <h2>How I work</h2>
+        <p>
+          I work as an extension of your team. I'm hands-on, pragmatic, and focused on leaving you with
+          tests and practices you own and understand.
+        </p>
+      </div>
+
+      <aside class="h-fit rounded-xl border border-ink-100 p-6">
+        <h2 class="font-semibold text-ink-900">At a glance</h2>
+        <ul class="mt-4 space-y-3 text-ink-700">
+          {
+            credentials.map((item) => (
+              <li class="flex gap-2">
+                <span class="text-accent-600" aria-hidden="true">✓</span>
+                {item}
+              </li>
+            ))
+          }
+        </ul>
+      </aside>
+    </div>
+  </section>
+  <CallToAction />
+</Layout>

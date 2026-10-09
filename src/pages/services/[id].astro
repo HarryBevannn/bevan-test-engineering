@@ -1,0 +1,51 @@
+---
+import { getCollection, render } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import CallToAction from '../../components/CallToAction.astro';
+
+export async function getStaticPaths() {
+  const services = await getCollection('services');
+  return services.map((service) => ({ params: { id: service.id }, props: { service } }));
+}
+
+interface Props {
+  service: CollectionEntry<'services'>;
+}
+
+const { service } = Astro.props;
+const { Content } = await render(service);
+---
+
+<Layout title={service.data.title} description={service.data.summary}>
+  <section class="bg-ink-50">
+    <div class="container-page py-16">
+      <a href="/services/" class="text-sm font-medium text-accent-700 hover:underline">← All services</a>
+      <h1 class="mt-4 max-w-3xl text-4xl font-extrabold tracking-tight text-ink-900">{service.data.title}</h1>
+      <p class="mt-4 max-w-2xl text-lg text-ink-700">{service.data.summary}</p>
+    </div>
+  </section>
+
+  <div class="container-page mt-12 grid gap-12 lg:grid-cols-[1fr_18rem]">
+    <div class="prose-content">
+      <Content />
+    </div>
+    {
+      service.data.highlights.length > 0 && (
+        <aside class="h-fit rounded-xl border border-ink-100 p-6">
+          <h2 class="font-semibold text-ink-900">Includes</h2>
+          <ul class="mt-4 space-y-3 text-ink-700">
+            {service.data.highlights.map((item) => (
+              <li class="flex gap-2">
+                <span class="text-accent-600" aria-hidden="true">✓</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </aside>
+      )
+    }
+  </div>
+
+  <CallToAction heading={`Interested in ${service.data.title.toLowerCase()}?`} />
+</Layout>

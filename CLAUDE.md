@@ -1,3 +1,15 @@
+## Project
+
+Marketing site for Bevan Test Engineering (software testing consultancy). Fully static Astro 7 + Tailwind 4, deployed to Netlify. No backend, no client-side framework; keep it that way unless there's a strong reason.
+
+- Site-wide details (name, email, nav): `src/consts.ts`
+- Services are a content collection: `src/content/services/*.md`, schema in `src/content.config.ts`
+- Brand tokens and shared classes (`container-page`, `btn-primary`, `prose-content`): `src/styles/global.css`
+- Contact form uses Netlify Forms (`data-netlify` attribute + hidden `form-name` field); keep those intact
+- Copy marked `PLACEHOLDER` / `TODO` still needs the owner's real wording; don't invent credentials or client names
+- UK English throughout
+- Run `npm run build` to verify changes
+
 ## Development
 
 When starting the dev server, use background mode:

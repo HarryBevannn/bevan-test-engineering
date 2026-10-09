@@ -1,16 +1,77 @@
 ---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import CallToAction from '../components/CallToAction.astro';
+
+const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
+
+// PLACEHOLDER: edit these to reflect how you work
+const approach = [
+  {
+    title: 'Understand',
+    text: 'I get to know your product, team and delivery process, and find where the real quality risks are.',
+  },
+  {
+    title: 'Plan',
+    text: 'We agree a focused, risk-based plan with clear outcomes, not a pile of documents.',
+  },
+  {
+    title: 'Deliver',
+    text: 'I work hands-on alongside your team to build tests, tooling and practices that last.',
+  },
+  {
+    title: 'Hand over',
+    text: 'Your team is left owning it, with documentation and coaching so nothing depends on me.',
+  },
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout>
+  <!-- Hero -->
+  <section class="bg-ink-50">
+    <div class="container-page py-20 sm:py-28">
+      <p class="text-sm font-semibold tracking-wide text-accent-700 uppercase">Software testing consultancy</p>
+      <h1 class="mt-3 max-w-3xl text-4xl font-extrabold tracking-tight text-ink-900 sm:text-5xl">
+        Ship with confidence. Find the bugs before your customers do.
+      </h1>
+      <p class="mt-6 max-w-2xl text-lg text-ink-700">
+        Bevan Test Engineering helps software teams build quality in, with practical test strategy,
+        reliable automation, and performance and accessibility testing.
+      </p>
+      <div class="mt-10 flex flex-wrap gap-4">
+        <a href="/contact/" class="btn-primary">Book a free consultation</a>
+        <a href="/services/" class="btn-secondary">View services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="container-page mt-20" aria-labelledby="services-heading">
+    <h2 id="services-heading" class="text-3xl font-bold text-ink-900">Services</h2>
+    <p class="mt-3 max-w-2xl text-ink-500">Engagements tailored to where your team needs the most help.</p>
+    <div class="mt-10 grid gap-6 sm:grid-cols-2">
+      {services.map((service) => <ServiceCard service={service} />)}
+    </div>
+  </section>
+
+  <!-- Approach -->
+  <section class="container-page mt-24" aria-labelledby="approach-heading">
+    <h2 id="approach-heading" class="text-3xl font-bold text-ink-900">How I work</h2>
+    <ol class="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        approach.map((step, i) => (
+          <li>
+            <span class="flex h-10 w-10 items-center justify-center rounded-full bg-accent-100 font-bold text-accent-700">
+              {i + 1}
+            </span>
+            <h3 class="mt-4 text-lg font-semibold text-ink-900">{step.title}</h3>
+            <p class="mt-2 text-ink-500">{step.text}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+
+  <CallToAction />
+</Layout>
