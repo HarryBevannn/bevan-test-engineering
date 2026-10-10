@@ -1,0 +1,29 @@
+---
+// The Bullring Bull: a charging bull in profile, drawn in a 120x66 box with its hooves on y=66.
+// Renders an SVG <g>, so it must be placed inside an <svg>. Position it with `transform`.
+interface Props {
+  transform?: string;
+  class?: string;
+}
+
+const { transform, class: className = 'fill-accent-500 stroke-accent-500' } = Astro.props;
+---
+
+<g transform={transform} class={className}>
+  <!-- tail -->
+  <path d="M17 30 C8 32 6 42 8 50" fill="none" stroke-width="3" stroke-linecap="round" />
+  <path d="M8 50 l-4 7 l6 -2 l2 6 z" stroke="none" />
+  <!-- deep body and big shoulder hump -->
+  <path d="M15 31 C17 18 40 14 64 15 C80 15 93 16 100 26 C105 35 102 47 94 51 L30 51 C18 51 13 42 15 31 Z" stroke="none" />
+  <ellipse cx="80" cy="19" rx="21" ry="13" stroke="none" />
+  <!-- lowered head -->
+  <path d="M93 23 C106 23 115 33 117 44 C119 52 111 57 104 54 C98 51 94 44 91 38 Z" stroke="none" />
+  <!-- horns -->
+  <path d="M101 27 C107 18 113 16 120 18" fill="none" stroke-width="3.5" stroke-linecap="round" />
+  <path d="M97 24 C99 14 105 9 113 8" fill="none" stroke-width="3.5" stroke-linecap="round" />
+  <!-- legs: front pair charging forward, back pair pushing off -->
+  <path d="M85 44 L97 64 L89 66 L77 47 Z" stroke="none" />
+  <path d="M73 46 L78 66 L69 66 L65 46 Z" stroke="none" />
+  <path d="M35 45 L24 64 L16 62 L26 43 Z" stroke="none" />
+  <path d="M45 46 L42 66 L33 66 L35 46 Z" stroke="none" />
+</g>

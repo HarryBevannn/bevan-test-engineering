@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import CallToAction from '../components/CallToAction.astro';
+import PageHeader from '../components/PageHeader.astro';
+import Narrowboat from '../components/birmingham/Narrowboat.astro';
 
 // TODO: add certifications (e.g. ISTQB) and sectors you've worked in
 const credentials = [
@@ -12,10 +14,16 @@ const credentials = [
 ---
 
 <Layout title="About" description="About Bevan Test Engineering, an independent software testing consultancy.">
-  <section class="container-page pt-16">
-    <h1 class="text-4xl font-extrabold tracking-tight text-ink-900">About</h1>
+  <PageHeader
+    title="About"
+    intro="A Birmingham-based testing consultancy, built on hands-on experience in test strategy and automation."
+    caption="Birmingham has more miles of canal than Venice."
+  >
+    <Narrowboat slot="motif" />
+  </PageHeader>
 
-    <div class="mt-10 grid gap-12 lg:grid-cols-[1fr_18rem]">
+  <section class="container-page pt-16">
+    <div class="grid gap-12 lg:grid-cols-[1fr_18rem]">
       <div class="prose-content">
         <!-- PLACEHOLDER COPY: rewrite in your own words -->
         <p>

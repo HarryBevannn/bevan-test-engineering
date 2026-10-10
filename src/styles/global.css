@@ -19,55 +19,6 @@
   --color-accent-700: #0f766e;
 }
 
-/*
-  Palette candidates (temporary): preview any page with ?palette=brick|steel|jewel.
-  Once one is chosen, copy its values into @theme above and delete these blocks and the script in Layout.astro.
-*/
-html[data-palette='brick'] {
-  --color-ink-50: #f7f5f3;
-  --color-ink-100: #ece6e1;
-  --color-ink-200: #d6ccc4;
-  --color-ink-500: #6f625a;
-  --color-ink-700: #3a2f2b;
-  --color-ink-800: #2a211e;
-  --color-ink-900: #1a1412;
-  --color-accent-50: #fff4ed;
-  --color-accent-100: #ffe2cc;
-  --color-accent-500: #ef6c33;
-  --color-accent-600: #c2410c;
-  --color-accent-700: #a8360a;
-}
-
-html[data-palette='steel'] {
-  --color-ink-50: #f5f5f6;
-  --color-ink-100: #e7e7ea;
-  --color-ink-200: #cfd0d6;
-  --color-ink-500: #63656f;
-  --color-ink-700: #33353d;
-  --color-ink-800: #212228;
-  --color-ink-900: #121316;
-  --color-accent-50: #eef4ff;
-  --color-accent-100: #dbe6ff;
-  --color-accent-500: #4f8ff7;
-  --color-accent-600: #2563eb;
-  --color-accent-700: #1d4ed8;
-}
-
-html[data-palette='jewel'] {
-  --color-ink-50: #f3f7f5;
-  --color-ink-100: #e3ece7;
-  --color-ink-200: #c3d5cb;
-  --color-ink-500: #557466;
-  --color-ink-700: #23443a;
-  --color-ink-800: #17322a;
-  --color-ink-900: #0e211b;
-  --color-accent-50: #fdf8e8;
-  --color-accent-100: #f8ebc0;
-  --color-accent-500: #d9ad3c;
-  --color-accent-600: #b8860b;
-  --color-accent-700: #946c08;
-}
-
 @layer base {
   html {
     scroll-behavior: smooth;

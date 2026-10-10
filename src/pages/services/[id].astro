@@ -3,6 +3,8 @@ import { getCollection, render } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import CallToAction from '../../components/CallToAction.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import LibraryRings from '../../components/birmingham/LibraryRings.astro';
 
 export async function getStaticPaths() {
   const services = await getCollection('services');
@@ -18,13 +20,12 @@ const { Content } = await render(service);
 ---
 
 <Layout title={service.data.title} description={service.data.summary}>
-  <section class="bg-ink-50">
-    <div class="container-page py-16">
-      <a href="/services/" class="text-sm font-medium text-accent-700 hover:underline">← All services</a>
-      <h1 class="mt-4 max-w-3xl text-4xl font-extrabold tracking-tight text-ink-900">{service.data.title}</h1>
-      <p class="mt-4 max-w-2xl text-lg text-ink-700">{service.data.summary}</p>
-    </div>
-  </section>
+  <PageHeader title={service.data.title} intro={service.data.summary}>
+    <a slot="before" href="/services/" class="mb-4 inline-block text-sm font-medium text-accent-500 hover:underline">
+      ← All services
+    </a>
+    <LibraryRings slot="motif" />
+  </PageHeader>
 
   <div class="container-page mt-12 grid gap-12 lg:grid-cols-[1fr_18rem]">
     <div class="prose-content">

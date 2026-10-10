@@ -33,18 +33,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta name="twitter:card" content="summary" />
-
-    <!-- Temporary palette preview: ?palette=brick|steel|jewel (remove once a palette is chosen) -->
-    <script is:inline>
-      try {
-        let p = new URLSearchParams(location.search).get('palette');
-        if (p) sessionStorage.setItem('palette', p);
-        else p = sessionStorage.getItem('palette');
-        if (p) document.documentElement.dataset.palette = p;
-      } catch {}
-    </script>
-  </head>
+    <meta name="twitter:card" content="summary" />  </head>
   <body class="flex min-h-screen flex-col">
     <a
       href="#main"

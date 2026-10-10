@@ -2,6 +2,8 @@
 import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import { SITE } from '../consts';
+import PageHeader from '../components/PageHeader.astro';
+import BtTower from '../components/birmingham/BtTower.astro';
 
 const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
 
@@ -10,15 +12,17 @@ const inputClass =
 ---
 
 <Layout title="Contact" description="Get in touch with Bevan Test Engineering to discuss your software testing needs.">
-  <section class="container-page pt-16">
+  <PageHeader
+    title="Get in touch"
+    intro="Tell me a little about your project and I'll reply within one working day to arrange a free, no-obligation call."
+    caption="Broadcasting from Birmingham, like the BT Tower."
+  >
+    <BtTower slot="motif" />
+  </PageHeader>
+
+  <section class="container-page pt-6">
     <div class="grid gap-12 lg:grid-cols-[1fr_22rem]">
       <div>
-        <h1 class="text-4xl font-extrabold tracking-tight text-ink-900">Get in touch</h1>
-        <p class="mt-4 max-w-xl text-lg text-ink-500">
-          Tell me a little about your project and I'll reply within one working day to arrange a free,
-          no-obligation call.
-        </p>
-
         <!--
           Handled by Netlify Forms: submissions appear in the Netlify dashboard and can be emailed to you.
           The hidden "bot-field" is a honeypot to catch spam bots.

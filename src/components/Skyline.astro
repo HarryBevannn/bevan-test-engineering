@@ -2,6 +2,7 @@
 // Stylised Birmingham skyline silhouette, left to right:
 // Library of Birmingham, the Rotunda, BT Tower, 103 Colmore Row, Selfridges (Bullring), the Cube.
 // Colours come from the theme tokens, so it follows whichever palette is active.
+import Bull from './birmingham/Bull.astro';
 ---
 
 <svg
@@ -93,4 +94,7 @@
       )
     }
   </g>
+
+  <!-- The Bullring Bull, charging out in front of Selfridges -->
+  <Bull transform="translate(1036 162) scale(1.18)" />
 </svg>
