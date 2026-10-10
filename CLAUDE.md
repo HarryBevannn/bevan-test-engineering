@@ -8,7 +8,8 @@ Marketing site for Bevan Test Engineering (software testing consultancy). Fully 
 - Contact form uses Netlify Forms (`data-netlify` attribute + hidden `form-name` field); keep those intact
 - Copy marked `PLACEHOLDER` / `TODO` still needs the owner's real wording; don't invent credentials or client names
 - UK English throughout
-- Run `npm run build` to verify changes
+- Run `npm run build` then `npm test` to verify changes (Playwright, ~1 min). Deploys happen from GitHub Actions only after all tests pass
+- Every interactive element needs a `data-testid` from `src/test-ids.ts` (feature-element kebab-case); the contract test fails otherwise
 
 ## Development
 

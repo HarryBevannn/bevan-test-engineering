@@ -4,6 +4,7 @@ import Layout from '../layouts/Layout.astro';
 import ServiceCard from '../components/ServiceCard.astro';
 import CallToAction from '../components/CallToAction.astro';
 import Skyline from '../components/Skyline.astro';
+import { TEST_IDS } from '../test-ids';
 
 const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
 
@@ -45,9 +46,10 @@ const approach = [
       </p>
       </div>
       <div class="hero-fade-delay mt-10 flex flex-wrap gap-4">
-        <a href="/contact/" class="btn-primary">Book a free consultation</a>
+        <a href="/contact/" class="btn-primary" data-testid={TEST_IDS.home.consultationButton}>Book a free consultation</a>
         <a
           href="/services/"
+          data-testid={TEST_IDS.home.servicesButton}
           class="inline-flex items-center justify-center rounded-lg border border-ink-500 px-5 py-3 font-semibold text-white transition hover:border-ink-200"
         >
           View services
@@ -72,6 +74,21 @@ const approach = [
     <p class="mt-3 max-w-2xl text-ink-500">Engagements tailored to where your team needs the most help.</p>
     <div class="mt-10 grid gap-6 sm:grid-cols-2">
       {services.map((service) => <ServiceCard service={service} />)}
+    </div>
+  </section>
+
+  <!-- Proof: this site tests itself -->
+  <section class="container-page mt-20" aria-labelledby="proof-heading">
+    <div class="flex flex-col gap-6 rounded-2xl border border-accent-100 bg-accent-50 p-8 sm:flex-row sm:items-center sm:justify-between sm:p-10">
+      <div>
+        <p class="text-sm font-semibold tracking-widest text-accent-700 uppercase">Practising what I preach</p>
+        <h2 id="proof-heading" class="mt-2 text-2xl font-bold text-ink-900 sm:text-3xl">Websites that test themselves</h2>
+        <p class="mt-3 max-w-xl text-ink-700">
+          Every change to this site runs through an automated Playwright pipeline before it goes live, and nothing is
+          published unless every test passes. Don't believe me?
+        </p>
+      </div>
+      <a href="/quality/" class="btn-primary shrink-0" data-testid={TEST_IDS.home.qualityButton}>See it in action →</a>
     </div>
   </section>
 

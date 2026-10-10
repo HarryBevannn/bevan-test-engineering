@@ -42,3 +42,22 @@ Every push to `main` redeploys automatically.
 1. Buy the domain (e.g. Cloudflare Registrar or Namecheap).
 2. In Netlify: **Domain management → Add a domain**, and follow the DNS instructions.
 3. Update `site` in `astro.config.mjs` and the sitemap URL in `public/robots.txt`.
+
+## Testing and the quality pipeline
+
+The site tests itself with Playwright. See the public results at `/quality/`.
+
+```sh
+npm run build                 # tests run against the built site in dist/
+npm test                      # full suite, desktop + mobile
+npm run test:report           # open the HTML report of the last run
+BASE_URL=https://bevan-test-engineering.netlify.app npm test   # test the live site
+```
+
+- Tests live in `tests/`. Pages are discovered from the sitemap, so new pages are tested automatically.
+- Every `data-testid` comes from `src/test-ids.ts` (naming: `feature-element`, kebab-case). The site and the
+  tests both import it, and `tests/test-ids.spec.ts` checks the contract: every agreed ID is present, unique,
+  registered and correctly named, and every interactive element has one.
+- `.github/workflows/ci.yml`: on every push to `main` the site is built and tested; **only a fully passing build
+  is deployed** to Netlify, then the suite runs again against the live site. It also re-tests the live site daily.
+- Deploying from the pipeline needs two GitHub repository secrets: `NETLIFY_AUTH_TOKEN` and `NETLIFY_SITE_ID`.

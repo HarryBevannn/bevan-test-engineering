@@ -1,0 +1,122 @@
+name: CI
+
+# Build → test → (only if every test passes) deploy → test the live site.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: '0 6 * * *' # every morning: re-test the live site
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  LIVE_URL: https://bevan-test-engineering.netlify.app
+
+jobs:
+  test:
+    name: Build and test
+    if: github.event_name != 'schedule'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run build
+      - name: Run Playwright tests (quality gate)
+        run: npx playwright test
+      - name: Publish test results into the site
+        if: ${{ !cancelled() }}
+        run: node scripts/quality-summary.mjs
+      - name: Upload Playwright report
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v5
+        with:
+          name: playwright-report
+          path: playwright-report
+          retention-days: 14
+      - name: Upload tested site for deployment
+        uses: actions/upload-artifact@v5
+        with:
+          name: site
+          path: dist
+          retention-days: 7
+
+  deploy:
+    name: Deploy to Netlify
+    needs: test
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v5
+        with:
+          name: site
+          path: dist
+      - name: Deploy the tested build
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        run: |
+          if [ -z "$NETLIFY_AUTH_TOKEN" ] || [ -z "$NETLIFY_SITE_ID" ]; then
+            echo "::error::NETLIFY_AUTH_TOKEN and NETLIFY_SITE_ID secrets are not set, so the tested build can't be deployed."
+            exit 1
+          fi
+          (cd dist && zip -qr ../site.zip .)
+          deploy=$(curl -sSf \
+            -H "Authorization: Bearer $NETLIFY_AUTH_TOKEN" \
+            -H "Content-Type: application/zip" \
+            --data-binary @site.zip \
+            "https://api.netlify.com/api/v1/sites/$NETLIFY_SITE_ID/deploys")
+          id=$(echo "$deploy" | jq -r .id)
+          echo "Deploy $id uploaded, waiting for it to go live…"
+          for i in $(seq 1 60); do
+            state=$(curl -sSf -H "Authorization: Bearer $NETLIFY_AUTH_TOKEN" \
+              "https://api.netlify.com/api/v1/deploys/$id" | jq -r .state)
+            echo "  state: $state"
+            [ "$state" = "ready" ] && exit 0
+            [ "$state" = "error" ] && { echo "::error::Netlify reported a failed deploy"; exit 1; }
+            sleep 5
+          done
+          echo "::error::Timed out waiting for the deploy"; exit 1
+
+  live:
+    name: Test the live site
+    needs: [test, deploy]
+    if: >-
+      ${{ !cancelled() && (
+        github.event_name == 'schedule' ||
+        github.event_name == 'workflow_dispatch' ||
+        needs.deploy.result == 'success'
+      ) }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      # The build provides the sitemap the tests use to discover every page.
+      - run: npm run build
+      - name: Run Playwright tests against the live site
+        run: npx playwright test
+        env:
+          BASE_URL: ${{ env.LIVE_URL }}
+      - name: Upload live test report
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v5
+        with:
+          name: live-playwright-report
+          path: playwright-report
+          retention-days: 14

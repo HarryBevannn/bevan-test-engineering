@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { TEST_IDS } from '../test-ids';
 ---
 
 <Layout title="Thanks">
@@ -8,6 +9,6 @@ import Layout from '../layouts/Layout.astro';
     <p class="mx-auto mt-4 max-w-xl text-lg text-ink-500">
       Your message has been sent. I'll get back to you within one working day.
     </p>
-    <a href="/" class="btn-secondary mt-10">Back to home</a>
+    <a href="/" class="btn-secondary mt-10" data-testid={TEST_IDS.thanks.homeButton}>Back to home</a>
   </section>
 </Layout>

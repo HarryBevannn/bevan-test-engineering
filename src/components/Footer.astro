@@ -1,6 +1,7 @@
 ---
 import { NAV, SITE } from '../consts';
 import Logo from './Logo.astro';
+import { TEST_IDS, slugFromHref } from '../test-ids';
 
 const year = new Date().getFullYear();
 ---
@@ -13,15 +14,45 @@ const year = new Date().getFullYear();
     </div>
     <nav aria-label="Footer">
       <ul class="space-y-2 text-sm">
-        {NAV.map((item) => <li><a href={item.href} class="hover:text-white">{item.label}</a></li>)}
+        {
+          NAV.map((item) => (
+            <li>
+              <a href={item.href} class="hover:text-white" data-testid={TEST_IDS.footer.navLink(slugFromHref(item.href))}>
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
       </ul>
     </nav>
     <ul class="space-y-2 text-sm">
-      <li><a href={`mailto:${SITE.email}`} class="hover:text-white">{SITE.email}</a></li>
-      <li><a href={SITE.linkedin} class="hover:text-white" rel="noopener">LinkedIn</a></li>
+      <li><a href={`mailto:${SITE.email}`} class="hover:text-white" data-testid={TEST_IDS.footer.emailLink}>{SITE.email}</a></li>
+      <li><a href={SITE.linkedin} class="hover:text-white" rel="noopener" data-testid={TEST_IDS.footer.linkedinLink}>LinkedIn</a></li>
     </ul>
   </div>
   <div class="border-t border-ink-700">
-    <p class="container-page py-4 text-xs text-ink-200">© {year} {SITE.name}. All rights reserved.</p>
+    <div class="container-page flex flex-wrap items-center justify-between gap-2 py-4 text-xs text-ink-200">
+      <p>© {year} {SITE.name}. All rights reserved.</p>
+      <!-- Filled in from the pipeline's published results, if present -->
+      <a
+        id="quality-badge"
+        href="/quality/"
+        class="hidden font-medium text-accent-500 hover:text-white"
+        data-testid={TEST_IDS.footer.qualityBadge}
+      ></a>
+    </div>
   </div>
 </footer>
+
+<script>
+  fetch('/quality/results.json', { cache: 'no-store' })
+    .then((res) => (res.ok ? res.json() : null))
+    .then((data) => {
+      if (!data?.stats || data.stats.failed > 0) return;
+      const badge = document.getElementById('quality-badge');
+      if (!badge) return;
+      badge.textContent = `✓ ${data.stats.passed} automated tests passed on this version`;
+      badge.classList.remove('hidden');
+    })
+    .catch(() => {});
+</script>

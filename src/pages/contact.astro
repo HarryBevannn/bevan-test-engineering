@@ -4,6 +4,7 @@ import Layout from '../layouts/Layout.astro';
 import { SITE } from '../consts';
 import PageHeader from '../components/PageHeader.astro';
 import BtTower from '../components/birmingham/BtTower.astro';
+import { TEST_IDS } from '../test-ids';
 
 const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
 
@@ -29,6 +30,7 @@ const inputClass =
         -->
         <form
           name="contact"
+          data-testid={TEST_IDS.contact.form}
           method="POST"
           action="/thanks/"
           data-netlify="true"
@@ -42,39 +44,39 @@ const inputClass =
 
           <div>
             <label for="name" class="font-medium text-ink-900">Name</label>
-            <input id="name" name="name" type="text" required autocomplete="name" class={inputClass} />
+            <input id="name" data-testid={TEST_IDS.contact.nameInput} name="name" type="text" required autocomplete="name" class={inputClass} />
           </div>
           <div>
             <label for="email" class="font-medium text-ink-900">Email</label>
-            <input id="email" name="email" type="email" required autocomplete="email" class={inputClass} />
+            <input id="email" data-testid={TEST_IDS.contact.emailInput} name="email" type="email" required autocomplete="email" class={inputClass} />
           </div>
           <div>
             <label for="company" class="font-medium text-ink-900">Company <span class="font-normal text-ink-500">(optional)</span></label>
-            <input id="company" name="company" type="text" autocomplete="organization" class={inputClass} />
+            <input id="company" data-testid={TEST_IDS.contact.companyInput} name="company" type="text" autocomplete="organization" class={inputClass} />
           </div>
           <div>
             <label for="service" class="font-medium text-ink-900">What can I help with?</label>
-            <select id="service" name="service" class={inputClass}>
+            <select id="service" data-testid={TEST_IDS.contact.serviceSelect} name="service" class={inputClass}>
               {services.map((s) => <option>{s.data.title}</option>)}
               <option>Something else / not sure yet</option>
             </select>
           </div>
           <div>
             <label for="message" class="font-medium text-ink-900">Message</label>
-            <textarea id="message" name="message" rows="6" required class={inputClass}></textarea>
+            <textarea id="message" data-testid={TEST_IDS.contact.messageInput} name="message" rows="6" required class={inputClass}></textarea>
           </div>
-          <button type="submit" class="btn-primary">Send message</button>
+          <button type="submit" class="btn-primary" data-testid={TEST_IDS.contact.submitButton}>Send message</button>
         </form>
       </div>
 
       <aside class="h-fit rounded-xl bg-ink-50 p-6">
         <h2 class="font-semibold text-ink-900">Prefer email?</h2>
         <p class="mt-2">
-          <a href={`mailto:${SITE.email}`} class="font-medium text-accent-700 underline underline-offset-2">{SITE.email}</a>
+          <a href={`mailto:${SITE.email}`} data-testid={TEST_IDS.contact.emailLink} class="font-medium text-accent-700 underline underline-offset-2">{SITE.email}</a>
         </p>
         <h2 class="mt-6 font-semibold text-ink-900">Connect</h2>
         <p class="mt-2">
-          <a href={SITE.linkedin} rel="noopener" class="font-medium text-accent-700 underline underline-offset-2">LinkedIn</a>
+          <a href={SITE.linkedin} rel="noopener" data-testid={TEST_IDS.contact.linkedinLink} class="font-medium text-accent-700 underline underline-offset-2">LinkedIn</a>
         </p>
         <h2 class="mt-6 font-semibold text-ink-900">Based in</h2>
         <p class="mt-2 text-ink-700">{SITE.location}, working remotely with clients anywhere</p>

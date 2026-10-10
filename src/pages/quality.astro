@@ -1,0 +1,336 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import CallToAction from '../components/CallToAction.astro';
+import Bull from '../components/birmingham/Bull.astro';
+import { SITE } from '../consts';
+import { TEST_IDS } from '../test-ids';
+
+const repo = 'https://github.com/HarryBevannn/bevan-test-engineering';
+
+const pipeline = [
+  { title: 'Push', text: 'A change is pushed to GitHub.' },
+  { title: 'Build', text: 'The site is built from scratch.' },
+  { title: 'Test', text: 'The full Playwright suite runs on desktop and mobile browsers.' },
+  { title: 'Quality gate', text: 'If a single test fails, the release stops here.' },
+  { title: 'Deploy', text: 'Only a fully passing build is published to Netlify.' },
+  { title: 'Verify live', text: 'The suite runs again against the live site, after every deploy and every morning.' },
+];
+
+const coverage = [
+  { title: 'Every page', text: 'Loads correctly, has one main heading, search metadata, and no JavaScript errors.' },
+  { title: 'Accessibility', text: 'Automated WCAG 2.2 AA scan of every page with axe, plus keyboard and reduced-motion checks.' },
+  { title: 'Navigation & links', text: 'Menus, service pages and buttons go where they should, and no link on the site is broken.' },
+  { title: 'Contact form', text: 'Required fields, email validation and spam protection, without ever sending a real message.' },
+  { title: 'Mobile layout', text: 'Every page fits a phone screen with no sideways scrolling.' },
+  { title: 'Performance & health', text: 'Page weight budgets, sitemap, robots.txt and security headers.' },
+];
+---
+
+<Layout
+  title="Quality"
+  description="This website tests itself. Every change runs through an automated Playwright and accessibility pipeline before it goes live, and you can run live checks yourself."
+>
+  <PageHeader
+    title="This site tests itself"
+    intro="Every change to this website goes through the same kind of automated quality pipeline I build for clients. Nothing goes live unless every test passes, and you can check the live site yourself below."
+    caption="Charging ahead with confidence, like the Bullring Bull."
+  >
+    <svg slot="motif" viewBox="0 0 130 72" class="h-full w-full" aria-hidden="true" focusable="false">
+      <Bull transform="translate(4 2)" />
+    </svg>
+  </PageHeader>
+
+  <!-- Pipeline -->
+  <section class="container-page mt-16" aria-labelledby="pipeline-heading">
+    <div class="flex flex-wrap items-end justify-between gap-4">
+      <h2 id="pipeline-heading" class="text-3xl font-bold text-ink-900">The pipeline</h2>
+      <a href={`${repo}/actions/workflows/ci.yml`} data-testid={TEST_IDS.quality.pipelineLink} class="flex items-center gap-2 text-sm font-medium text-accent-700 hover:underline">
+        <img src={`${repo}/actions/workflows/ci.yml/badge.svg`} alt="Current pipeline status" height="20" />
+        Pipeline history on GitHub
+      </a>
+    </div>
+    <ol class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+      {
+        pipeline.map((step, i) => (
+          <li class="rounded-xl border border-ink-100 p-5">
+            <span class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-100 text-sm font-bold text-accent-700">
+              {i + 1}
+            </span>
+            <h3 class="mt-3 font-semibold text-ink-900">{step.title}</h3>
+            <p class="mt-1 text-sm text-ink-500">{step.text}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+
+  <!-- Latest pipeline results -->
+  <section class="container-page mt-20" aria-labelledby="results-heading">
+    <h2 id="results-heading" class="text-3xl font-bold text-ink-900">Latest pipeline results</h2>
+    <p class="mt-3 max-w-2xl text-ink-500">
+      The results from the test run that approved the version of the site you're looking at right now.
+    </p>
+
+    <div id="results" data-testid={TEST_IDS.quality.results} class="mt-8" aria-live="polite">
+      <p class="text-ink-500">Loading results…</p>
+    </div>
+  </section>
+
+  <!-- Live checks -->
+  <section class="container-page mt-20" aria-labelledby="live-heading">
+    <div class="rounded-2xl bg-ink-900 p-6 sm:p-10">
+      <h2 id="live-heading" class="text-3xl font-bold text-white">Test the live site yourself</h2>
+      <p class="mt-3 max-w-2xl text-ink-200">
+        Don't just take the pipeline's word for it. This runs real checks against the live website, from your
+        own browser, right now.
+      </p>
+      <button id="run-live" data-testid={TEST_IDS.quality.runLiveButton} type="button" class="btn-primary mt-6">Run live checks</button>
+      <p id="live-summary" data-testid={TEST_IDS.quality.liveSummary} class="mt-6 font-semibold text-white" aria-live="polite"></p>
+      <div class="mt-4 overflow-x-auto">
+        <table id="live-table" data-testid={TEST_IDS.quality.liveTable} class="hidden w-full text-left text-sm text-ink-200">
+          <thead>
+            <tr class="border-b border-ink-700 text-xs tracking-wide text-ink-200 uppercase">
+              <th scope="col" class="py-2 pr-4 font-semibold">Check</th>
+              <th scope="col" class="py-2 pr-4 font-semibold">Result</th>
+              <th scope="col" class="py-2 text-right font-semibold">Time</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- What's covered -->
+  <section class="container-page mt-20" aria-labelledby="coverage-heading">
+    <h2 id="coverage-heading" class="text-3xl font-bold text-ink-900">What gets tested</h2>
+    <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        coverage.map((item) => (
+          <div class="rounded-xl border border-ink-100 p-6">
+            <h3 class="font-semibold text-ink-900">{item.title}</h3>
+            <p class="mt-2 text-ink-500">{item.text}</p>
+          </div>
+        ))
+      }
+    </div>
+    <p class="mt-8 text-ink-500">
+      The tests are public:
+      <a href={`${repo}/tree/main/tests`} data-testid={TEST_IDS.quality.testsLink} class="font-medium text-accent-700 underline underline-offset-2">read them on GitHub</a>.
+    </p>
+  </section>
+
+  <CallToAction
+    heading="Want this for your product?"
+    text="I build pipelines like this for teams of every size: automated Playwright tests that run on every change and stop bugs before they reach your users."
+  />
+</Layout>
+
+<script>
+  type TestResult = { title: string; project: string; status: string; durationMs: number };
+  type Results = {
+    generatedAt: string;
+    commit?: string;
+    commitUrl?: string;
+    runUrl?: string;
+    stats: { total: number; passed: number; failed: number; flaky: number; skipped: number; durationMs: number };
+    groups: { name: string; tests: TestResult[] }[];
+  };
+
+  function el<K extends keyof HTMLElementTagNameMap>(tag: K, className = '', text = ''): HTMLElementTagNameMap[K] {
+    const node = document.createElement(tag);
+    if (className) node.className = className;
+    if (text) node.textContent = text;
+    return node;
+  }
+
+  const seconds = (ms: number) => `${(ms / 1000).toFixed(1)}s`;
+
+  function tile(label: string, value: string, tone = 'text-ink-900') {
+    const box = el('div', 'rounded-xl border border-ink-100 p-5');
+    box.append(el('p', 'text-sm text-ink-500', label), el('p', `mt-1 text-2xl font-bold ${tone}`, value));
+    return box;
+  }
+
+  async function loadResults() {
+    const container = document.getElementById('results')!;
+    let data: Results;
+    try {
+      const res = await fetch('/quality/results.json', { cache: 'no-store' });
+      if (!res.ok) throw new Error(String(res.status));
+      data = await res.json();
+      // The site ships a placeholder; the pipeline replaces it with real results just before deploy.
+      if (!data.stats) throw new Error('pending');
+    } catch {
+      container.replaceChildren(
+        el('p', 'text-ink-500', 'No pipeline results are published with this version of the site yet.')
+      );
+      return;
+    }
+
+    const { stats } = data;
+    const tiles = el('div', 'grid gap-4 sm:grid-cols-2 lg:grid-cols-4');
+    tiles.append(
+      tile('Tests passed', `${stats.passed} / ${stats.total - stats.skipped}`, 'text-accent-700'),
+      tile('Failed', String(stats.failed), stats.failed ? 'text-red-700' : 'text-ink-900'),
+      tile('Run time', seconds(stats.durationMs)),
+      tile('Last run', new Date(data.generatedAt).toLocaleString('en-GB', { dateStyle: 'medium', timeStyle: 'short' }))
+    );
+
+    const meta = el('p', 'mt-4 text-sm text-ink-500');
+    if (data.commit && data.commitUrl) {
+      meta.append('Version ');
+      const a = el('a', 'font-mono text-accent-700 underline underline-offset-2', data.commit.slice(0, 7));
+      a.href = data.commitUrl;
+      meta.append(a);
+    }
+    if (data.runUrl) {
+      meta.append(data.commit ? ' · ' : '');
+      const a = el('a', 'text-accent-700 underline underline-offset-2', 'full pipeline run');
+      a.href = data.runUrl;
+      meta.append(a);
+    }
+
+    const groups = el('div', 'mt-8 space-y-3');
+    for (const group of data.groups) {
+      const passed = group.tests.filter((t) => t.status === 'passed' || t.status === 'flaky').length;
+      const ran = group.tests.filter((t) => t.status !== 'skipped').length;
+      const details = el('details', 'rounded-xl border border-ink-100');
+      const summary = el('summary', 'flex cursor-pointer items-center justify-between gap-4 p-4 font-semibold text-ink-900');
+      summary.append(el('span', '', group.name), el('span', 'text-sm font-medium text-accent-700', `${passed}/${ran} passed`));
+      const list = el('ul', 'divide-y divide-ink-100 border-t border-ink-100 text-sm');
+      for (const t of group.tests) {
+        const li = el('li', 'flex items-start justify-between gap-4 px-4 py-2');
+        const icon = t.status === 'passed' || t.status === 'flaky' ? '✓' : t.status === 'skipped' ? '–' : '✗';
+        const tone = icon === '✓' ? 'text-accent-700' : icon === '✗' ? 'text-red-700' : 'text-ink-500';
+        const left = el('span', 'text-ink-700');
+        left.append(el('span', `mr-2 font-bold ${tone}`, icon), `${t.title} `, el('span', 'text-ink-500', `(${t.project})`));
+        li.append(left, el('span', 'shrink-0 text-ink-500', t.status === 'skipped' ? 'skipped' : `${t.durationMs} ms`));
+        list.append(li);
+      }
+      details.append(summary, list);
+      groups.append(details);
+    }
+
+    container.replaceChildren(tiles, meta, groups);
+  }
+
+  // Live checks: run from the visitor's browser against this very site.
+  type Check = { name: string; run: () => Promise<{ ok: boolean; detail: string }> };
+
+  async function timedFetch(path: string) {
+    const start = performance.now();
+    const res = await fetch(path, { cache: 'no-store' });
+    const body = await res.text();
+    return { res, body, ms: Math.round(performance.now() - start) };
+  }
+
+  async function buildChecks(): Promise<Check[]> {
+    const { body } = await timedFetch('/sitemap-0.xml');
+    const paths = [...body.matchAll(/<loc>(.*?)<\/loc>/g)].map((m) => new URL(m[1]).pathname);
+
+    const pageChecks: Check[] = paths.map((path) => ({
+      name: `Page ${path} loads`,
+      run: async () => {
+        const { res, body } = await timedFetch(path);
+        const hasTitle = /<title>[^<]+<\/title>/.test(body);
+        return { ok: res.status === 200 && hasTitle, detail: `HTTP ${res.status}${hasTitle ? '' : ', missing title'}` };
+      },
+    }));
+
+    return [
+      {
+        name: 'Served securely over HTTPS',
+        run: async () => ({ ok: location.protocol === 'https:', detail: location.protocol.replace(':', '').toUpperCase() }),
+      },
+      ...pageChecks,
+      {
+        name: 'Unknown pages return 404',
+        run: async () => {
+          const { res } = await timedFetch(`/not-a-real-page-${Date.now()}/`);
+          return { ok: res.status === 404, detail: `HTTP ${res.status}` };
+        },
+      },
+      {
+        name: 'Security headers set',
+        run: async () => {
+          const { res } = await timedFetch('/');
+          const wanted = ['x-frame-options', 'x-content-type-options', 'referrer-policy'];
+          const missing = wanted.filter((h) => !res.headers.get(h));
+          return { ok: missing.length === 0, detail: missing.length ? `missing ${missing.join(', ')}` : `${wanted.length} of ${wanted.length} present` };
+        },
+      },
+      {
+        name: 'robots.txt and sitemap available',
+        run: async () => {
+          const robots = await timedFetch('/robots.txt');
+          const sitemap = await timedFetch('/sitemap-index.xml');
+          const ok = robots.res.ok && sitemap.res.ok && robots.body.includes('Sitemap:');
+          return { ok, detail: ok ? 'both found' : 'missing' };
+        },
+      },
+      {
+        name: 'Pipeline approved this version',
+        run: async () => {
+          const { res, body } = await timedFetch('/quality/results.json');
+          const data = res.ok ? JSON.parse(body) : {};
+          if (!data.stats) return { ok: false, detail: 'no results published' };
+          return { ok: data.stats.failed === 0, detail: `${data.stats.passed} tests passed` };
+        },
+      },
+    ];
+  }
+
+  async function runLiveChecks() {
+    const button = document.getElementById('run-live') as HTMLButtonElement;
+    const summary = document.getElementById('live-summary')!;
+    const table = document.getElementById('live-table')!;
+    const tbody = table.querySelector('tbody')!;
+
+    button.disabled = true;
+    button.textContent = 'Running…';
+    tbody.replaceChildren();
+    table.classList.remove('hidden');
+    summary.textContent = '';
+
+    const started = performance.now();
+    let passed = 0;
+    let checks: Check[] = [];
+    try {
+      checks = await buildChecks();
+    } catch {
+      summary.textContent = 'Could not read the sitemap, so the checks could not start.';
+    }
+
+    for (const check of checks) {
+      const row = el('tr', 'border-b border-ink-800');
+      const result = el('td', 'py-2 pr-4', 'running…');
+      const time = el('td', 'py-2 text-right tabular-nums');
+      row.append(el('td', 'py-2 pr-4 text-white', check.name), result, time);
+      tbody.append(row);
+
+      const start = performance.now();
+      let outcome: { ok: boolean; detail: string };
+      try {
+        outcome = await check.run();
+      } catch (e) {
+        outcome = { ok: false, detail: 'request failed' };
+      }
+      if (outcome.ok) passed++;
+      result.className = `py-2 pr-4 font-medium ${outcome.ok ? 'text-accent-500' : 'text-red-400'}`;
+      result.textContent = `${outcome.ok ? '✓ Pass' : '✗ Fail'} · ${outcome.detail}`;
+      time.textContent = `${Math.round(performance.now() - start)} ms`;
+    }
+
+    if (checks.length) {
+      const total = Math.round(performance.now() - started);
+      summary.textContent = `${passed} of ${checks.length} live checks passed in ${(total / 1000).toFixed(1)}s.`;
+    }
+    button.disabled = false;
+    button.textContent = 'Run live checks again';
+  }
+
+  loadResults();
+  document.getElementById('run-live')!.addEventListener('click', runLiveChecks);
+</script>

@@ -5,6 +5,7 @@ import Layout from '../../layouts/Layout.astro';
 import CallToAction from '../../components/CallToAction.astro';
 import PageHeader from '../../components/PageHeader.astro';
 import LibraryRings from '../../components/birmingham/LibraryRings.astro';
+import { TEST_IDS } from '../../test-ids';
 
 export async function getStaticPaths() {
   const services = await getCollection('services');
@@ -21,7 +22,7 @@ const { Content } = await render(service);
 
 <Layout title={service.data.title} description={service.data.summary}>
   <PageHeader title={service.data.title} intro={service.data.summary}>
-    <a slot="before" href="/services/" class="mb-4 inline-block text-sm font-medium text-accent-500 hover:underline">
+    <a slot="before" href="/services/" data-testid={TEST_IDS.services.backLink} class="mb-4 inline-block text-sm font-medium text-accent-500 hover:underline">
       ← All services
     </a>
     <LibraryRings slot="motif" />
