@@ -3,12 +3,12 @@ export const SITE = {
   name: 'Bevan Test Engineering',
   tagline: 'Software testing consultancy',
   description:
-    'Independent software testing consultancy helping teams ship with confidence through test strategy, automation, performance and accessibility testing.',
+    'Independent software testing consultancy in Birmingham, helping teams ship with confidence through pragmatic test strategy and reliable Playwright and API test automation.',
   email: 'harrybevan97@proton.me',
   // TODO: replace with your LinkedIn profile URL
   linkedin: 'https://www.linkedin.com/',
   github: 'https://github.com/harrybevannn',
-  location: 'United Kingdom',
+  location: 'Birmingham, UK',
 };
 
 export const NAV = [
