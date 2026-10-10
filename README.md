@@ -60,5 +60,5 @@ BASE_URL=https://bevan-test-engineering.netlify.app npm test   # test the live s
   registered and correctly named, and every interactive element has one.
 - `.github/workflows/ci.yml`: on every push to `main` the site is built and tested. **Only a fully passing
   version** is pushed (with its test results) to the `production` branch, which is the only branch Netlify
-  deploys. The suite then runs again against the live site. It also re-tests the live site every morning.
+  deploys. The suite then runs again against the live site. It also re-tests the live site on the 1st of every month.
 - Never push to `production` by hand; it's managed by the pipeline.
