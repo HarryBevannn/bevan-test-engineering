@@ -1,6 +1,7 @@
 name: CI
 
-# Build → test → (only if every test passes) deploy → test the live site.
+# Build → test → (only if every test passes) promote to the `production` branch → Netlify publishes it
+# → test the live site. Netlify only deploys the `production` branch, so untested code can't go live.
 on:
   push:
     branches: [main]
@@ -35,9 +36,9 @@ jobs:
       - run: npm run build
       - name: Run Playwright tests (quality gate)
         run: npx playwright test
-      - name: Publish test results into the site
+      - name: Summarise test results for the Quality page
         if: ${{ !cancelled() }}
-        run: node scripts/quality-summary.mjs
+        run: node scripts/quality-summary.mjs quality-results.json
       - name: Upload Playwright report
         if: ${{ !cancelled() }}
         uses: actions/upload-artifact@v5
@@ -45,58 +46,44 @@ jobs:
           name: playwright-report
           path: playwright-report
           retention-days: 14
-      - name: Upload tested site for deployment
+      - name: Upload results summary
         uses: actions/upload-artifact@v5
         with:
-          name: site
-          path: dist
+          name: quality-results
+          path: quality-results.json
           retention-days: 7
 
-  deploy:
-    name: Deploy to Netlify
+  promote:
+    name: Release to production
     needs: test
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
+      - uses: actions/checkout@v5
       - uses: actions/download-artifact@v5
         with:
-          name: site
-          path: dist
-      - name: Deploy the tested build
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          name: quality-results
+      - name: Commit the test results and push the tested version to production
         run: |
-          if [ -z "$NETLIFY_AUTH_TOKEN" ] || [ -z "$NETLIFY_SITE_ID" ]; then
-            echo "::error::NETLIFY_AUTH_TOKEN and NETLIFY_SITE_ID secrets are not set, so the tested build can't be deployed."
-            exit 1
-          fi
-          (cd dist && zip -qr ../site.zip .)
-          deploy=$(curl -sSf \
-            -H "Authorization: Bearer $NETLIFY_AUTH_TOKEN" \
-            -H "Content-Type: application/zip" \
-            --data-binary @site.zip \
-            "https://api.netlify.com/api/v1/sites/$NETLIFY_SITE_ID/deploys")
-          id=$(echo "$deploy" | jq -r .id)
-          echo "Deploy $id uploaded, waiting for it to go live…"
-          for i in $(seq 1 60); do
-            state=$(curl -sSf -H "Authorization: Bearer $NETLIFY_AUTH_TOKEN" \
-              "https://api.netlify.com/api/v1/deploys/$id" | jq -r .state)
-            echo "  state: $state"
-            [ "$state" = "ready" ] && exit 0
-            [ "$state" = "error" ] && { echo "::error::Netlify reported a failed deploy"; exit 1; }
-            sleep 5
-          done
-          echo "::error::Timed out waiting for the deploy"; exit 1
+          mv quality-results.json public/quality/results.json
+          passed=$(jq '.stats.passed' public/quality/results.json)
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/quality/results.json
+          git commit -m "Release ${GITHUB_SHA::7}: ${passed} tests passed"
+          git push --force origin HEAD:production
+          echo "Released ${GITHUB_SHA::7} to the production branch (${passed} tests passed)." >> "$GITHUB_STEP_SUMMARY"
 
   live:
     name: Test the live site
-    needs: [test, deploy]
+    needs: [test, promote]
     if: >-
       ${{ !cancelled() && (
         github.event_name == 'schedule' ||
         github.event_name == 'workflow_dispatch' ||
-        needs.deploy.result == 'success'
+        needs.promote.result == 'success'
       ) }}
     runs-on: ubuntu-latest
     steps:
@@ -105,6 +92,17 @@ jobs:
         with:
           node-version: 24
           cache: npm
+      - name: Wait for Netlify to publish this release
+        if: needs.promote.result == 'success'
+        run: |
+          for i in $(seq 1 60); do
+            live=$(curl -sf "$LIVE_URL/quality/results.json?nocache=$RANDOM" | jq -r '.commit // empty' || true)
+            if [ "$live" = "$GITHUB_SHA" ]; then echo "Release ${GITHUB_SHA::7} is live."; exit 0; fi
+            echo "Live site is on '${live:-no results}', waiting for ${GITHUB_SHA::7}…"
+            sleep 10
+          done
+          echo "::error::The release did not appear on the live site within 10 minutes. Is Netlify's production branch set to 'production'?"
+          exit 1
       - run: npm ci
       - run: npx playwright install --with-deps chromium
       # The build provides the sitemap the tests use to discover every page.

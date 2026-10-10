@@ -35,7 +35,7 @@ Search for `PLACEHOLDER` and `TODO` to find copy that still needs writing.
 3. Under **Site configuration → Site details**, rename the site to `bevan-test-engineering` so it's served at `https://bevan-test-engineering.netlify.app`.
 4. Under **Forms**, enable form detection, then add an email notification so enquiries reach your inbox.
 
-Every push to `main` redeploys automatically.
+Every push to `main` is tested and, if everything passes, released automatically (see below).
 
 ## Adding a custom domain later
 
@@ -58,6 +58,7 @@ BASE_URL=https://bevan-test-engineering.netlify.app npm test   # test the live s
 - Every `data-testid` comes from `src/test-ids.ts` (naming: `feature-element`, kebab-case). The site and the
   tests both import it, and `tests/test-ids.spec.ts` checks the contract: every agreed ID is present, unique,
   registered and correctly named, and every interactive element has one.
-- `.github/workflows/ci.yml`: on every push to `main` the site is built and tested; **only a fully passing build
-  is deployed** to Netlify, then the suite runs again against the live site. It also re-tests the live site daily.
-- Deploying from the pipeline needs two GitHub repository secrets: `NETLIFY_AUTH_TOKEN` and `NETLIFY_SITE_ID`.
+- `.github/workflows/ci.yml`: on every push to `main` the site is built and tested. **Only a fully passing
+  version** is pushed (with its test results) to the `production` branch, which is the only branch Netlify
+  deploys. The suite then runs again against the live site. It also re-tests the live site every morning.
+- Never push to `production` by hand; it's managed by the pipeline.

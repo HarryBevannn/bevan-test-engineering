@@ -1,6 +1,6 @@
-# The site is built, tested and deployed by GitHub Actions (.github/workflows/ci.yml).
-# These build settings are only a fallback; security headers live in public/_headers
-# so they apply to deploys uploaded from the pipeline too.
+# Netlify deploys only the `production` branch. GitHub Actions (.github/workflows/ci.yml) pushes
+# there only after every Playwright test has passed, together with the test results file.
+# Security headers live in public/_headers.
 [build]
   command = "npm run build"
   publish = "dist"
