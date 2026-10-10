@@ -1,6 +1,6 @@
 ---
-// Brand logo: a teal tile holding a tick whose long stroke sweeps up like a bull's horn
-// (quality assurance + the Bullring Bull), followed by the wordmark.
+// Brand logo: a teal tile holding a bull's head with two horns (the Bullring Bull)
+// and a tick on its face (quality assurance), followed by the wordmark.
 // `tone` sets the wordmark colours for light or dark backgrounds.
 interface Props {
   tone?: 'light-bg' | 'dark-bg';
@@ -13,11 +13,19 @@ const { tone = 'light-bg', class: className } = Astro.props;
 <span class:list={['inline-flex items-center gap-2.5', className]}>
   <svg viewBox="0 0 32 32" class="h-8 w-8 shrink-0" aria-hidden="true" focusable="false">
     <rect width="32" height="32" rx="8" class="fill-accent-600" />
+    <!-- horns -->
     <path
-      d="M8.5 16.5 L13.5 21.5 C15.5 15.5 19 10.5 25 8"
+      d="M5.5 7.5 C5.5 13 8 16.5 11.5 17.5 L20.5 17.5 C24 16.5 26.5 13 26.5 7.5 C24.5 11.5 22 13.5 19 13.8 L13 13.8 C10 13.5 7.5 11.5 5.5 7.5 Z"
+      fill="#fff"
+    />
+    <!-- head -->
+    <path d="M11 15.5 H21 L19.5 23 C19 25.2 17.8 26 16 26 C14.2 26 13 25.2 12.5 23 Z" fill="#fff" />
+    <!-- tick on the face -->
+    <path
+      d="M13.6 21 L15.4 22.8 L18.6 19"
       fill="none"
-      stroke="#fff"
-      stroke-width="3.4"
+      class="stroke-accent-600"
+      stroke-width="1.5"
       stroke-linecap="round"
       stroke-linejoin="round"
     />
