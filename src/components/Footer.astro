@@ -1,5 +1,6 @@
 ---
 import { NAV, SITE } from '../consts';
+import Logo from './Logo.astro';
 
 const year = new Date().getFullYear();
 ---
@@ -7,8 +8,8 @@ const year = new Date().getFullYear();
 <footer class="mt-24 bg-ink-900 text-ink-200">
   <div class="container-page grid gap-8 py-12 sm:grid-cols-3">
     <div>
-      <p class="font-bold text-white">{SITE.name}</p>
-      <p class="mt-2 text-sm">{SITE.tagline} · {SITE.location}</p>
+      <Logo tone="dark-bg" />
+      <p class="mt-4 text-sm">{SITE.tagline} · {SITE.location}</p>
     </div>
     <nav aria-label="Footer">
       <ul class="space-y-2 text-sm">

@@ -1,5 +1,6 @@
 ---
 import { NAV, SITE } from '../consts';
+import Logo from './Logo.astro';
 
 const path = Astro.url.pathname;
 const isActive = (href: string) => path === href || path.startsWith(href);
@@ -7,9 +8,8 @@ const isActive = (href: string) => path === href || path.startsWith(href);
 
 <header class="border-b border-ink-100 bg-white">
   <div class="container-page flex flex-wrap items-center justify-between gap-4 py-4">
-    <a href="/" class="flex items-center gap-2 text-lg font-bold text-ink-900">
-      <span class="inline-block h-3 w-3 rounded-sm bg-accent-600" aria-hidden="true"></span>
-      {SITE.name}
+    <a href="/" aria-label={`${SITE.name}, home`}>
+      <Logo />
     </a>
     <nav aria-label="Main">
       <ul class="flex items-center gap-1 sm:gap-2">

@@ -1,7 +1,7 @@
 ---
 title: Test Strategy & QA Consultancy
 summary: A clear, pragmatic plan for what to test, how, and when, built around your risks, your team and your release cadence.
-order: 1
+order: 4
 highlights:
   - QA health check of your current testing
   - Risk-based test strategy and test plans

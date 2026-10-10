@@ -33,6 +33,63 @@
   }
 }
 
+/*
+  Landing page header animation: skyline rises in, the Bull charges in, a few windows flicker.
+  Only runs for visitors who haven't asked their device to reduce motion.
+  To turn it off entirely, delete this block.
+*/
+@media (prefers-reduced-motion: no-preference) {
+  .hero-fade {
+    animation: fade-up 0.7s ease-out both;
+  }
+  .hero-fade-delay {
+    animation: fade-up 0.7s 0.15s ease-out both;
+  }
+  .skyline-back {
+    animation: rise 1.1s 0.2s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  }
+  .skyline-front {
+    animation: rise 1.1s 0.35s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  }
+  .skyline-bull {
+    animation: charge 0.9s 1.1s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  }
+  .skyline-twinkle rect:nth-child(3n) {
+    animation: twinkle 5s 2s ease-in-out infinite;
+  }
+  .skyline-twinkle rect:nth-child(4n + 1) {
+    animation: twinkle 7s 3s ease-in-out infinite;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+}
+@keyframes charge {
+  from {
+    opacity: 0;
+    transform: translateX(-80px);
+  }
+}
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+}
+
 @layer components {
   .container-page {
     @apply mx-auto w-full max-w-6xl px-4 sm:px-6;

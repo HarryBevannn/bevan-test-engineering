@@ -1,27 +1,46 @@
 ---
 title: Test Automation
-summary: Fast, reliable automated tests your team trusts, built with Playwright and solid API testing, running on every change.
-order: 2
+summary: Turn slow, repetitive manual testing into fast, reliable automated tests, so your team can spend its time where people add the most value.
+order: 1
 highlights:
-  - End-to-end UI automation with Playwright
-  - API testing with Postman and REST Assured
-  - Tests running in your CI/CD pipeline
-  - Flaky-test diagnosis and suite stabilisation
-  - Documentation and handover to your team
+  - Review of your existing manual test cases
+  - Prioritised automation roadmap
+  - Playwright UI and API test suites
+  - Clean, maintainable framework your team can own
+  - Measurable time saved on every release
 ---
 
 ## The problem
 
-Automated suites that are slow, flaky or hard to maintain end up ignored, and then they're worse than having no automation at all. Meanwhile, manual regression cycles keep growing and slowing down every release.
+Manual regression testing doesn't scale. Every release, someone works through the same checklist by hand: logging in, filling in forms, checking the same pages and the same API responses. It's slow, it's repetitive, and it's exactly the kind of work where mistakes creep in. As the product grows, the checklist grows with it, until testing becomes the bottleneck holding every release back.
 
-## How I help
+## My process
 
-I design and build automation that your team can maintain: Playwright for fast, reliable end-to-end tests of your web application, and API tests that check your services directly, where tests are quicker to run and far less brittle. Everything runs in your pipeline, so you get trustworthy feedback on every pull request.
+Automation works best when it's done deliberately, not by trying to automate everything at once. I follow a clear, step-by-step process to move your manual testing into automation:
 
-If you already have a suite, I can audit it, track down the flakiness and get it back to green.
+### 1. Discover
+
+I start by reviewing your existing manual test cases, regression checklists and bug history, and by sitting with the people who run them today. The goal is to understand what's tested, how often, and what really matters to the business.
+
+### 2. Prioritise
+
+Not every test is worth automating. I score each candidate on how often it runs, how risky the area is, how long it takes by hand and how stable the feature is. That gives you a prioritised roadmap, starting with the tests that save the most time and catch the most important bugs.
+
+### 3. Build
+
+I build a clean, well-structured framework using **Playwright** for end-to-end UI tests and API testing for the services underneath. Where a check can be done at the API level, it is, because API tests are faster and far less brittle than tests that drive the UI.
+
+### 4. Integrate
+
+The tests are wired into your pipeline so they run automatically, with clear reports that show exactly what failed and why. See [CI/CD Testing](/services/ci-cd-testing/) for how this fits into your delivery process.
+
+### 5. Hand over
+
+You get documentation, coding conventions and hands-on sessions with your team, so they can extend the suite with confidence long after I've gone.
 
 ## What you get
 
-- An automation framework that fits your stack and your team
-- UI and API tests running on every pull request
-- Clear documentation and a proper handover, so your team owns it
+- A prioritised automation roadmap based on your real test cases
+- A maintainable Playwright and API test suite
+- Hours of manual regression time handed back every release
+- A team that understands and owns its automation
