@@ -1,1 +1,1311 @@
-{ "pending": true }
+{
+  "generatedAt": "2026-10-10T15:06:37.023Z",
+  "commit": "8eff74c91738ff2e43d6cec4ba053afe60da9800",
+  "commitUrl": "https://github.com/HarryBevannn/bevan-test-engineering/commit/8eff74c91738ff2e43d6cec4ba053afe60da9800",
+  "runUrl": "https://github.com/HarryBevannn/bevan-test-engineering/actions/runs/38062207069",
+  "stats": {
+    "total": 210,
+    "passed": 205,
+    "failed": 0,
+    "flaky": 0,
+    "skipped": 5,
+    "durationMs": 31570
+  },
+  "groups": [
+    {
+      "name": "Accessibility",
+      "tests": [
+        {
+          "title": "Accessibility (WCAG 2.2 AA) › / has no accessibility violations",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 1223
+        },
+        {
+          "title": "Accessibility (WCAG 2.2 AA) › /about/ has no accessibility violations",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 1189
+        },
+        {
+          "title": "Accessibility (WCAG 2.2 AA) › /contact/ has no accessibility violations",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 1440
+        },
+        {
+          "title": "Accessibility (WCAG 2.2 AA) › /quality/ has no accessibility violations",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 1816
+        },
+        {
+          "title": "Accessibility (WCAG 2.2 AA) › /services/ has no accessibility violations",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 997
+        },
+        {
+          "title": "Accessibility (WCAG 2.2 AA) › /services/ci-cd-testing/ has no accessibility violations",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 1096
+        },
+        {
+          "title": "Accessibility (WCAG 2.2 AA) › /services/qa-tools/ has no accessibility violations",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 1351
+        },
+        {
+          "title": "Accessibility (WCAG 2.2 AA) › /services/test-automation/ has no accessibility violations",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 1076
+        },
+        {
+          "title": "Accessibility (WCAG 2.2 AA) › /services/test-strategy/ has no accessibility violations",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 1274
+        },
+        {
+          "title": "Accessibility (WCAG 2.2 AA) › skip link lets keyboard users jump to the content",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 364
+        },
+        {
+          "title": "Accessibility (WCAG 2.2 AA) › animations are switched off for people who prefer reduced motion",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 359
+        },
+        {
+          "title": "Accessibility (WCAG 2.2 AA) › / has no accessibility violations",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 1609
+        },
+        {
+          "title": "Accessibility (WCAG 2.2 AA) › /about/ has no accessibility violations",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 1333
+        },
+        {
+          "title": "Accessibility (WCAG 2.2 AA) › /contact/ has no accessibility violations",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 1352
+        },
+        {
+          "title": "Accessibility (WCAG 2.2 AA) › /quality/ has no accessibility violations",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 1536
+        },
+        {
+          "title": "Accessibility (WCAG 2.2 AA) › /services/ has no accessibility violations",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 1167
+        },
+        {
+          "title": "Accessibility (WCAG 2.2 AA) › /services/ci-cd-testing/ has no accessibility violations",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 1161
+        },
+        {
+          "title": "Accessibility (WCAG 2.2 AA) › /services/qa-tools/ has no accessibility violations",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 1146
+        },
+        {
+          "title": "Accessibility (WCAG 2.2 AA) › /services/test-automation/ has no accessibility violations",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 1198
+        },
+        {
+          "title": "Accessibility (WCAG 2.2 AA) › /services/test-strategy/ has no accessibility violations",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 1205
+        },
+        {
+          "title": "Accessibility (WCAG 2.2 AA) › skip link lets keyboard users jump to the content",
+          "project": "mobile",
+          "status": "skipped",
+          "durationMs": 188
+        },
+        {
+          "title": "Accessibility (WCAG 2.2 AA) › animations are switched off for people who prefer reduced motion",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 407
+        }
+      ]
+    },
+    {
+      "name": "Contact form",
+      "tests": [
+        {
+          "title": "Contact form › is set up for Netlify Forms with a spam honeypot",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 327
+        },
+        {
+          "title": "Contact form › blocks submission when required fields are empty",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 542
+        },
+        {
+          "title": "Contact form › company field is optional",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 308
+        },
+        {
+          "title": "Contact form › rejects an invalid email address",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 371
+        },
+        {
+          "title": "Contact form › accepts a complete, valid enquiry",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 570
+        },
+        {
+          "title": "Contact form › fields have visible labels",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 419
+        },
+        {
+          "title": "Contact form › offers every service in the dropdown",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 499
+        },
+        {
+          "title": "Contact form › email link opens a new email to the right address",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 298
+        },
+        {
+          "title": "Contact form › is set up for Netlify Forms with a spam honeypot",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 388
+        },
+        {
+          "title": "Contact form › blocks submission when required fields are empty",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 534
+        },
+        {
+          "title": "Contact form › company field is optional",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 393
+        },
+        {
+          "title": "Contact form › rejects an invalid email address",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 456
+        },
+        {
+          "title": "Contact form › accepts a complete, valid enquiry",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 614
+        },
+        {
+          "title": "Contact form › fields have visible labels",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 418
+        },
+        {
+          "title": "Contact form › offers every service in the dropdown",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 503
+        },
+        {
+          "title": "Contact form › email link opens a new email to the right address",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 376
+        }
+      ]
+    },
+    {
+      "name": "Navigation & links",
+      "tests": [
+        {
+          "title": "Navigation › main menu \"Services\" link opens the right page",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 633
+        },
+        {
+          "title": "Navigation › footer \"Services\" link opens the right page",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 564
+        },
+        {
+          "title": "Navigation › main menu \"About\" link opens the right page",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 516
+        },
+        {
+          "title": "Navigation › footer \"About\" link opens the right page",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 612
+        },
+        {
+          "title": "Navigation › main menu \"Quality\" link opens the right page",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 665
+        },
+        {
+          "title": "Navigation › footer \"Quality\" link opens the right page",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 641
+        },
+        {
+          "title": "Navigation › main menu \"Contact\" link opens the right page",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 636
+        },
+        {
+          "title": "Navigation › footer \"Contact\" link opens the right page",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 513
+        },
+        {
+          "title": "Navigation › logo returns to the home page",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 507
+        },
+        {
+          "title": "Navigation › service card \"ci-cd-testing\" opens its page and links back",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 702
+        },
+        {
+          "title": "Navigation › service card \"qa-tools\" opens its page and links back",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 660
+        },
+        {
+          "title": "Navigation › service card \"test-automation\" opens its page and links back",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 737
+        },
+        {
+          "title": "Navigation › service card \"test-strategy\" opens its page and links back",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 852
+        },
+        {
+          "title": "Navigation › \"Book a free consultation\" leads to the contact form",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 1607
+        },
+        {
+          "title": "Navigation › \"View services\" leads to the services page",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 559
+        },
+        {
+          "title": "Navigation › \"See it in action\" leads to the Quality page",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 543
+        },
+        {
+          "title": "Navigation › \"Get in touch\" call to action leads to the contact form",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 461
+        },
+        {
+          "title": "Navigation › unknown pages show the custom 404 page with a way home",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 532
+        },
+        {
+          "title": "Navigation › main menu \"Services\" link opens the right page",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 617
+        },
+        {
+          "title": "Navigation › footer \"Services\" link opens the right page",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 552
+        },
+        {
+          "title": "Navigation › main menu \"About\" link opens the right page",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 564
+        },
+        {
+          "title": "Navigation › footer \"About\" link opens the right page",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 563
+        },
+        {
+          "title": "Navigation › main menu \"Quality\" link opens the right page",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 628
+        },
+        {
+          "title": "Navigation › footer \"Quality\" link opens the right page",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 588
+        },
+        {
+          "title": "Navigation › main menu \"Contact\" link opens the right page",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 611
+        },
+        {
+          "title": "Navigation › footer \"Contact\" link opens the right page",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 586
+        },
+        {
+          "title": "Navigation › logo returns to the home page",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 547
+        },
+        {
+          "title": "Navigation › service card \"ci-cd-testing\" opens its page and links back",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 670
+        },
+        {
+          "title": "Navigation › service card \"qa-tools\" opens its page and links back",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 693
+        },
+        {
+          "title": "Navigation › service card \"test-automation\" opens its page and links back",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 667
+        },
+        {
+          "title": "Navigation › service card \"test-strategy\" opens its page and links back",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 609
+        },
+        {
+          "title": "Navigation › \"Book a free consultation\" leads to the contact form",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 505
+        },
+        {
+          "title": "Navigation › \"View services\" leads to the services page",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 505
+        },
+        {
+          "title": "Navigation › \"See it in action\" leads to the Quality page",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 517
+        },
+        {
+          "title": "Navigation › \"Get in touch\" call to action leads to the contact form",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 515
+        },
+        {
+          "title": "Navigation › unknown pages show the custom 404 page with a way home",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 575
+        },
+        {
+          "title": "Links › no internal link on any page is broken",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 1384
+        },
+        {
+          "title": "Links › no internal link on any page is broken",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 1491
+        }
+      ]
+    },
+    {
+      "name": "Pages",
+      "tests": [
+        {
+          "title": "Page / › loads with a title, one main heading and no errors",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 298
+        },
+        {
+          "title": "Page / › has search engine metadata",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 350
+        },
+        {
+          "title": "Page / › fits the screen without sideways scrolling",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 263
+        },
+        {
+          "title": "Page / › stays under the 300 KB page weight budget",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 866
+        },
+        {
+          "title": "Page / › loads with a title, one main heading and no errors",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 456
+        },
+        {
+          "title": "Page / › has search engine metadata",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 433
+        },
+        {
+          "title": "Page / › fits the screen without sideways scrolling",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 353
+        },
+        {
+          "title": "Page / › stays under the 300 KB page weight budget",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 833
+        },
+        {
+          "title": "Page /about/ › loads with a title, one main heading and no errors",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 341
+        },
+        {
+          "title": "Page /about/ › has search engine metadata",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 377
+        },
+        {
+          "title": "Page /about/ › fits the screen without sideways scrolling",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 278
+        },
+        {
+          "title": "Page /about/ › stays under the 300 KB page weight budget",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 732
+        },
+        {
+          "title": "Page /about/ › loads with a title, one main heading and no errors",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 461
+        },
+        {
+          "title": "Page /about/ › has search engine metadata",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 382
+        },
+        {
+          "title": "Page /about/ › fits the screen without sideways scrolling",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 298
+        },
+        {
+          "title": "Page /about/ › stays under the 300 KB page weight budget",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 734
+        },
+        {
+          "title": "Page /contact/ › loads with a title, one main heading and no errors",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 227
+        },
+        {
+          "title": "Page /contact/ › has search engine metadata",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 255
+        },
+        {
+          "title": "Page /contact/ › fits the screen without sideways scrolling",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 179
+        },
+        {
+          "title": "Page /contact/ › stays under the 300 KB page weight budget",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 660
+        },
+        {
+          "title": "Page /contact/ › loads with a title, one main heading and no errors",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 324
+        },
+        {
+          "title": "Page /contact/ › has search engine metadata",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 260
+        },
+        {
+          "title": "Page /contact/ › fits the screen without sideways scrolling",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 256
+        },
+        {
+          "title": "Page /contact/ › stays under the 300 KB page weight budget",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 740
+        },
+        {
+          "title": "Page /quality/ › loads with a title, one main heading and no errors",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 246
+        },
+        {
+          "title": "Page /quality/ › has search engine metadata",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 261
+        },
+        {
+          "title": "Page /quality/ › fits the screen without sideways scrolling",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 234
+        },
+        {
+          "title": "Page /quality/ › stays under the 300 KB page weight budget",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 771
+        },
+        {
+          "title": "Page /quality/ › loads with a title, one main heading and no errors",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 306
+        },
+        {
+          "title": "Page /quality/ › has search engine metadata",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 337
+        },
+        {
+          "title": "Page /quality/ › fits the screen without sideways scrolling",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 267
+        },
+        {
+          "title": "Page /quality/ › stays under the 300 KB page weight budget",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 799
+        },
+        {
+          "title": "Page /services/ › loads with a title, one main heading and no errors",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 221
+        },
+        {
+          "title": "Page /services/ › has search engine metadata",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 231
+        },
+        {
+          "title": "Page /services/ › fits the screen without sideways scrolling",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 201
+        },
+        {
+          "title": "Page /services/ › stays under the 300 KB page weight budget",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 697
+        },
+        {
+          "title": "Page /services/ › loads with a title, one main heading and no errors",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 194
+        },
+        {
+          "title": "Page /services/ › has search engine metadata",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 277
+        },
+        {
+          "title": "Page /services/ › fits the screen without sideways scrolling",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 236
+        },
+        {
+          "title": "Page /services/ › stays under the 300 KB page weight budget",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 732
+        },
+        {
+          "title": "Page /services/ci-cd-testing/ › loads with a title, one main heading and no errors",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 186
+        },
+        {
+          "title": "Page /services/ci-cd-testing/ › has search engine metadata",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 209
+        },
+        {
+          "title": "Page /services/ci-cd-testing/ › fits the screen without sideways scrolling",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 193
+        },
+        {
+          "title": "Page /services/ci-cd-testing/ › stays under the 300 KB page weight budget",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 672
+        },
+        {
+          "title": "Page /services/ci-cd-testing/ › loads with a title, one main heading and no errors",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 238
+        },
+        {
+          "title": "Page /services/ci-cd-testing/ › has search engine metadata",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 241
+        },
+        {
+          "title": "Page /services/ci-cd-testing/ › fits the screen without sideways scrolling",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 235
+        },
+        {
+          "title": "Page /services/ci-cd-testing/ › stays under the 300 KB page weight budget",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 742
+        },
+        {
+          "title": "Page /services/qa-tools/ › loads with a title, one main heading and no errors",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 218
+        },
+        {
+          "title": "Page /services/qa-tools/ › has search engine metadata",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 243
+        },
+        {
+          "title": "Page /services/qa-tools/ › fits the screen without sideways scrolling",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 227
+        },
+        {
+          "title": "Page /services/qa-tools/ › stays under the 300 KB page weight budget",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 686
+        },
+        {
+          "title": "Page /services/qa-tools/ › loads with a title, one main heading and no errors",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 323
+        },
+        {
+          "title": "Page /services/qa-tools/ › has search engine metadata",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 274
+        },
+        {
+          "title": "Page /services/qa-tools/ › fits the screen without sideways scrolling",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 218
+        },
+        {
+          "title": "Page /services/qa-tools/ › stays under the 300 KB page weight budget",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 748
+        },
+        {
+          "title": "Page /services/test-automation/ › loads with a title, one main heading and no errors",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 214
+        },
+        {
+          "title": "Page /services/test-automation/ › has search engine metadata",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 255
+        },
+        {
+          "title": "Page /services/test-automation/ › fits the screen without sideways scrolling",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 214
+        },
+        {
+          "title": "Page /services/test-automation/ › stays under the 300 KB page weight budget",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 679
+        },
+        {
+          "title": "Page /services/test-automation/ › loads with a title, one main heading and no errors",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 241
+        },
+        {
+          "title": "Page /services/test-automation/ › has search engine metadata",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 237
+        },
+        {
+          "title": "Page /services/test-automation/ › fits the screen without sideways scrolling",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 269
+        },
+        {
+          "title": "Page /services/test-automation/ › stays under the 300 KB page weight budget",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 732
+        },
+        {
+          "title": "Page /services/test-strategy/ › loads with a title, one main heading and no errors",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 199
+        },
+        {
+          "title": "Page /services/test-strategy/ › has search engine metadata",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 227
+        },
+        {
+          "title": "Page /services/test-strategy/ › fits the screen without sideways scrolling",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 210
+        },
+        {
+          "title": "Page /services/test-strategy/ › stays under the 300 KB page weight budget",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 703
+        },
+        {
+          "title": "Page /services/test-strategy/ › loads with a title, one main heading and no errors",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 260
+        },
+        {
+          "title": "Page /services/test-strategy/ › has search engine metadata",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 259
+        },
+        {
+          "title": "Page /services/test-strategy/ › fits the screen without sideways scrolling",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 223
+        },
+        {
+          "title": "Page /services/test-strategy/ › stays under the 300 KB page weight budget",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 765
+        }
+      ]
+    },
+    {
+      "name": "Quality page",
+      "tests": [
+        {
+          "title": "Quality page › shows the latest pipeline results",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 279
+        },
+        {
+          "title": "Quality page › \"Run live checks\" tests the site from the browser and reports the outcome",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 464
+        },
+        {
+          "title": "Quality page › links to the pipeline history and the test code on GitHub",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 271
+        },
+        {
+          "title": "Quality page › shows the latest pipeline results",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 361
+        },
+        {
+          "title": "Quality page › \"Run live checks\" tests the site from the browser and reports the outcome",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 587
+        },
+        {
+          "title": "Quality page › links to the pipeline history and the test code on GitHub",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 350
+        }
+      ]
+    },
+    {
+      "name": "Site health",
+      "tests": [
+        {
+          "title": "Site health › robots.txt allows crawling and points to the sitemap",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 33
+        },
+        {
+          "title": "Site health › sitemap lists every public page and hides the thank-you page",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 16
+        },
+        {
+          "title": "Site health › favicon is served",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 22
+        },
+        {
+          "title": "Site health › pipeline test results are published",
+          "project": "desktop",
+          "status": "skipped",
+          "durationMs": 11
+        },
+        {
+          "title": "Site health › security headers are set on the live site",
+          "project": "desktop",
+          "status": "skipped",
+          "durationMs": 4
+        },
+        {
+          "title": "Site health › robots.txt allows crawling and points to the sitemap",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 28
+        },
+        {
+          "title": "Site health › sitemap lists every public page and hides the thank-you page",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 8
+        },
+        {
+          "title": "Site health › favicon is served",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 9
+        },
+        {
+          "title": "Site health › pipeline test results are published",
+          "project": "mobile",
+          "status": "skipped",
+          "durationMs": 4
+        },
+        {
+          "title": "Site health › security headers are set on the live site",
+          "project": "mobile",
+          "status": "skipped",
+          "durationMs": 2
+        }
+      ]
+    },
+    {
+      "name": "Test ID contract",
+      "tests": [
+        {
+          "title": "Test ID contract › / provides all of its agreed test IDs",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 657
+        },
+        {
+          "title": "Test ID contract › / test IDs are unique, registered and follow the naming convention",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 377
+        },
+        {
+          "title": "Test ID contract › /services/ provides all of its agreed test IDs",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 590
+        },
+        {
+          "title": "Test ID contract › /services/ test IDs are unique, registered and follow the naming convention",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 288
+        },
+        {
+          "title": "Test ID contract › /services/ci-cd-testing/ provides all of its agreed test IDs",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 497
+        },
+        {
+          "title": "Test ID contract › /services/ci-cd-testing/ test IDs are unique, registered and follow the naming convention",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 386
+        },
+        {
+          "title": "Test ID contract › /services/qa-tools/ provides all of its agreed test IDs",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 447
+        },
+        {
+          "title": "Test ID contract › /services/qa-tools/ test IDs are unique, registered and follow the naming convention",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 312
+        },
+        {
+          "title": "Test ID contract › /services/test-automation/ provides all of its agreed test IDs",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 400
+        },
+        {
+          "title": "Test ID contract › /services/test-automation/ test IDs are unique, registered and follow the naming convention",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 269
+        },
+        {
+          "title": "Test ID contract › /services/test-strategy/ provides all of its agreed test IDs",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 392
+        },
+        {
+          "title": "Test ID contract › /services/test-strategy/ test IDs are unique, registered and follow the naming convention",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 261
+        },
+        {
+          "title": "Test ID contract › /about/ provides all of its agreed test IDs",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 383
+        },
+        {
+          "title": "Test ID contract › /about/ test IDs are unique, registered and follow the naming convention",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 267
+        },
+        {
+          "title": "Test ID contract › /contact/ provides all of its agreed test IDs",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 421
+        },
+        {
+          "title": "Test ID contract › /contact/ test IDs are unique, registered and follow the naming convention",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 293
+        },
+        {
+          "title": "Test ID contract › /quality/ provides all of its agreed test IDs",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 543
+        },
+        {
+          "title": "Test ID contract › /quality/ test IDs are unique, registered and follow the naming convention",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 357
+        },
+        {
+          "title": "Test ID contract › /thanks/ provides all of its agreed test IDs",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 361
+        },
+        {
+          "title": "Test ID contract › /thanks/ test IDs are unique, registered and follow the naming convention",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 253
+        },
+        {
+          "title": "Test ID contract › /missing-page-for-contract-test/ provides all of its agreed test IDs",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 348
+        },
+        {
+          "title": "Test ID contract › /missing-page-for-contract-test/ test IDs are unique, registered and follow the naming convention",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 276
+        },
+        {
+          "title": "Test ID contract › every interactive element on the site has a test ID",
+          "project": "desktop",
+          "status": "passed",
+          "durationMs": 1365
+        },
+        {
+          "title": "Test ID contract › / provides all of its agreed test IDs",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 738
+        },
+        {
+          "title": "Test ID contract › / test IDs are unique, registered and follow the naming convention",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 406
+        },
+        {
+          "title": "Test ID contract › /services/ provides all of its agreed test IDs",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 588
+        },
+        {
+          "title": "Test ID contract › /services/ test IDs are unique, registered and follow the naming convention",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 358
+        },
+        {
+          "title": "Test ID contract › /services/ci-cd-testing/ provides all of its agreed test IDs",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 451
+        },
+        {
+          "title": "Test ID contract › /services/ci-cd-testing/ test IDs are unique, registered and follow the naming convention",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 403
+        },
+        {
+          "title": "Test ID contract › /services/qa-tools/ provides all of its agreed test IDs",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 450
+        },
+        {
+          "title": "Test ID contract › /services/qa-tools/ test IDs are unique, registered and follow the naming convention",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 296
+        },
+        {
+          "title": "Test ID contract › /services/test-automation/ provides all of its agreed test IDs",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 520
+        },
+        {
+          "title": "Test ID contract › /services/test-automation/ test IDs are unique, registered and follow the naming convention",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 351
+        },
+        {
+          "title": "Test ID contract › /services/test-strategy/ provides all of its agreed test IDs",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 514
+        },
+        {
+          "title": "Test ID contract › /services/test-strategy/ test IDs are unique, registered and follow the naming convention",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 335
+        },
+        {
+          "title": "Test ID contract › /about/ provides all of its agreed test IDs",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 463
+        },
+        {
+          "title": "Test ID contract › /about/ test IDs are unique, registered and follow the naming convention",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 363
+        },
+        {
+          "title": "Test ID contract › /contact/ provides all of its agreed test IDs",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 481
+        },
+        {
+          "title": "Test ID contract › /contact/ test IDs are unique, registered and follow the naming convention",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 371
+        },
+        {
+          "title": "Test ID contract › /quality/ provides all of its agreed test IDs",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 552
+        },
+        {
+          "title": "Test ID contract › /quality/ test IDs are unique, registered and follow the naming convention",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 472
+        },
+        {
+          "title": "Test ID contract › /thanks/ provides all of its agreed test IDs",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 497
+        },
+        {
+          "title": "Test ID contract › /thanks/ test IDs are unique, registered and follow the naming convention",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 295
+        },
+        {
+          "title": "Test ID contract › /missing-page-for-contract-test/ provides all of its agreed test IDs",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 478
+        },
+        {
+          "title": "Test ID contract › /missing-page-for-contract-test/ test IDs are unique, registered and follow the naming convention",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 330
+        },
+        {
+          "title": "Test ID contract › every interactive element on the site has a test ID",
+          "project": "mobile",
+          "status": "passed",
+          "durationMs": 792
+        }
+      ]
+    }
+  ]
+}
